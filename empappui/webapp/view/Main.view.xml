@@ -1,0 +1,51 @@
+<mvc:View controllerName="empappui.empappui.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Table inset="true" items="{ path: '/Employee', sorter: {
+				path: 'EmployeeID'
+			} }">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="Employees" level="H2"/>
+                            <ToolbarSpacer />
+                            <Button icon="sap-icon://add" text="Add Employee" press="handleAddEmployee"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Employee ID" />
+                    </Column>
+                    <Column
+                        minScreenWidth="Tablet"
+                        demandPopin="true">
+                        <Text text="Employee Name" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="Company" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
+                        <Text text="" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{EmployeeID}"/>
+                            <Text text="{EmployeeName}"/>
+                            <Text text="{CompanyName}"/>
+                            <Button icon="sap-icon://edit" press="handleEdiEmployee"/>
+                            <Button icon="sap-icon://delete" press="handleDeleteEmployee" type="Reject"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
